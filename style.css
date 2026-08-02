@@ -1,0 +1,996 @@
+:root {
+  --bg: #f8f3eb;
+  --text: #4e425a;
+  --accent: #e7dcf7;
+  --gold: #c8a66a;
+  --border: #e8dcc7;
+  --shadow: rgba(78, 66, 90, 0.08);
+  --paper: rgba(255, 255, 255, 0.78);
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Lora", Georgia, serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #fbf8f1 0%, #f7efe5 45%, #f3ebdf 100%);
+  overflow-x: hidden;
+  line-height: 1.8;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(250, 246, 240, 0.94) 40%, rgba(244, 236, 226, 0.92) 100%),
+    linear-gradient(135deg, rgba(231, 220, 247, 0.14) 0%, transparent 32%, transparent 68%, rgba(231, 220, 247, 0.11) 100%),
+    radial-gradient(circle at top left, rgba(231, 220, 247, 0.25), transparent 34%),
+    radial-gradient(circle at 20% 80%, rgba(200, 166, 106, 0.09), transparent 38%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.72), transparent 30%),
+    radial-gradient(circle at 50% 45%, rgba(200, 166, 106, 0.028), transparent 46%);
+  background-size: cover;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.12;
+  background-image:
+    radial-gradient(circle at 14% 18%, rgba(200, 166, 106, 0.09) 0 1px, transparent 1.2px),
+    radial-gradient(circle at 84% 18%, rgba(200, 166, 106, 0.07) 0 1px, transparent 1.1px),
+    radial-gradient(circle at 40% 86%, rgba(200, 166, 106, 0.06) 0 1px, transparent 1.1px),
+    radial-gradient(circle at 78% 70%, rgba(231, 220, 247, 0.12) 0 1px, transparent 1.2px);
+  background-size: 320px 320px;
+  animation: drift 40s linear infinite;
+}
+
+.page::before,
+.page::after {
+  content: "";
+  position: fixed;
+  width: 11rem;
+  height: 11rem;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.12;
+}
+
+.page::before {
+  top: 1rem;
+  left: 1rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M34 168c-1-31 10-55 30-73 19-17 35-26 48-26 13 0 24 6 31 17-5 7-15 14-23 18-11 6-19 10-25 20-5 8-7 16-7 28 0 10 6 20 15 25-20 4-38-1-53-16-11-12-16-24-16-53 0-12 2-27 8-39 6-12 14-21 24-28 5 3 10 7 14 13-6 8-10 17-13 27-3 11-4 24-4 38 0 10 0 20 3 30 3 11 10 21 20 27-9-2-17-8-23-16-7-10-9-18-9-33Z' fill='none' stroke='%23c8a66a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M118 169c6-23 16-35 29-45 9-7 17-12 22-17-8 17-17 28-29 38-8 7-16 13-25 24Z' fill='none' stroke='%23c8a66a' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M74 74c7-4 17-6 28-4 7 1 13 4 18 8' fill='none' stroke='%23c8a66a' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M94 46c-4 12-7 23-8 37' fill='none' stroke='%23c8a66a' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.page::after {
+  right: 1rem;
+  bottom: 1rem;
+  transform: scaleX(-1);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M34 168c-1-31 10-55 30-73 19-17 35-26 48-26 13 0 24 6 31 17-5 7-15 14-23 18-11 6-19 10-25 20-5 8-7 16-7 28 0 10 6 20 15 25-20 4-38-1-53-16-11-12-16-24-16-53 0-12 2-27 8-39 6-12 14-21 24-28 5 3 10 7 14 13-6 8-10 17-13 27-3 11-4 24-4 38 0 10 0 20 3 30 3 11 10 21 20 27-9-2-17-8-23-16-7-10-9-18-9-33Z' fill='none' stroke='%23c8a66a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M118 169c6-23 16-35 29-45 9-7 17-12 22-17-8 17-17 28-29 38-8 7-16 13-25 24Z' fill='none' stroke='%23c8a66a' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M74 74c7-4 17-6 28-4 7 1 13 4 18 8' fill='none' stroke='%23c8a66a' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M94 46c-4 12-7 23-8 37' fill='none' stroke='%23c8a66a' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+}
+
+/* Typography */
+.loader {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #f8f2e8 0%, #f7efe6 100%);
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.loader.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  inset: 24% 20% 24% 20%;
+  background: radial-gradient(circle, rgba(200, 166, 106, 0.045), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.loader__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+}
+
+.loader__monogram {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.55rem;
+  letter-spacing: 0.24em;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.loader__monogram span {
+  color: var(--gold);
+  font-size: 0.86em;
+  line-height: 0.9;
+  display: inline-block;
+}
+
+.loader__subtitle {
+  margin: 0.95rem 0 0;
+  font-size: 0.84rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.loader__names {
+  margin: 0.75rem 0 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+.loader__names span {
+  color: var(--gold);
+  font-size: 0.8em;
+  line-height: 0.9;
+  display: inline-block;
+}
+
+.top-nav {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+}
+
+.top-nav__menu {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid rgba(200, 166, 106, 0.32);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 28px rgba(78, 66, 90, 0.06);
+}
+
+.top-nav__link {
+  position: relative;
+  padding: 0.42rem 0.76rem;
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.86rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: color 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.top-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0.74rem;
+  right: 0.74rem;
+  bottom: 0.22rem;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.top-nav__link.is-active,
+.top-nav__link:hover,
+.top-nav__link:focus-visible {
+  background: rgba(231, 220, 247, 0.24);
+  color: var(--gold);
+  box-shadow: 0 0 0 1px rgba(200, 166, 106, 0.18);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.top-nav__link.is-active::after,
+.top-nav__link:hover::after,
+.top-nav__link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.top-nav__toggle {
+  display: none;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid rgba(200, 166, 106, 0.35);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(12px);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(78, 66, 90, 0.08);
+}
+
+.top-nav__toggle span {
+  display: block;
+  width: 1.05rem;
+  height: 1px;
+  margin: 0.16rem 0;
+  background: var(--text);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.top-nav__toggle.is-open span:nth-child(1) {
+  transform: translateY(0.3rem) rotate(45deg);
+}
+
+.top-nav__toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.top-nav__toggle.is-open span:nth-child(3) {
+  transform: translateY(-0.3rem) rotate(-45deg);
+}
+
+.progress-indicator {
+  position: fixed;
+  left: 1.1rem;
+  top: 50%;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  transform: translateY(-50%);
+}
+
+.progress-indicator::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, rgba(200, 166, 106, 0.6), rgba(200, 166, 106, 0.1));
+}
+
+.progress-indicator__item {
+  position: relative;
+  z-index: 1;
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 1px solid rgba(200, 166, 106, 0.28);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.progress-indicator__item:hover,
+.progress-indicator__item:focus-visible {
+  transform: translateX(2px);
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(220, 206, 243, 0.2);
+  box-shadow: 0 0 0 1px rgba(200, 166, 106, 0.16);
+  outline: none;
+}
+
+.progress-indicator__item.is-active {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(220, 206, 243, 0.24);
+  box-shadow: inset 0 0 0 1px rgba(200, 166, 106, 0.16);
+}
+
+.progress-indicator__number {
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+}
+
+.eyebrow {
+  margin: 0 0 0.7rem;
+  font-size: 0.84rem;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.landing__subtitle {
+  margin: 0 0 1.25rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.landing__headline,
+.landing__names,
+.invitation__card h2,
+.invitation__rsvp h3,
+.rsvp-card h4 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Layout */
+.landing,
+.invitation {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.landing {
+  position: relative;
+  animation: introFadeUp 1.3s ease both;
+}
+
+.landing::before,
+.landing::after {
+  content: "";
+  position: absolute;
+  inset: 1.1rem;
+  pointer-events: none;
+  border: 1px solid rgba(200, 166, 106, 0.3);
+  border-radius: 1.5rem;
+}
+
+.landing::before {
+  inset: 0.9rem;
+  border-color: rgba(200, 166, 106, 0.24);
+}
+
+.landing::after {
+  inset: 1.45rem;
+  border: 0;
+  background:
+    radial-gradient(circle at top left, rgba(220, 206, 243, 0.1), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(220, 206, 243, 0.08), transparent 36%);
+  z-index: -1;
+}
+
+.landing__inner {
+  position: relative;
+  max-width: 770px;
+  text-align: center;
+  padding: clamp(2rem, 4vw, 3rem);
+}
+
+.landing__headline {
+  margin: 0 0 1.45rem;
+  font-size: clamp(1.8rem, 3.2vw, 2.65rem);
+  line-height: 1.28;
+}
+
+.landing__break {
+  display: block;
+  margin-top: 0.4rem;
+}
+
+.landing__names {
+  position: relative;
+  margin: 1.4rem 0 1.8rem;
+  font-size: clamp(3.2rem, 5.8vw, 4.8rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.04;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  isolation: isolate;
+}
+
+.landing__names::before {
+  content: "";
+  position: absolute;
+  inset: 8% 6% 18% 5%;
+  background: radial-gradient(circle, rgba(231, 220, 247, 0.46) 0%, rgba(231, 220, 247, 0.2) 28%, rgba(231, 220, 247, 0) 72%);
+  filter: blur(16px);
+  opacity: 0.08;
+  z-index: -1;
+}
+
+.heart {
+  color: var(--gold);
+  margin: 0 0.16rem;
+  font-size: 0.56em;
+  line-height: 0.9;
+  display: inline-block;
+  transform: translateY(-0.02em);
+  text-shadow: 0 0 8px rgba(200, 166, 106, 0.1);
+  opacity: 0.95;
+}
+
+.landing__details {
+  margin: 0 0 2rem;
+  font-size: 1rem;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+}
+
+.landing__details p {
+  margin: 0.24rem 0;
+}
+
+.monogram {
+  display: inline-grid;
+  place-items: center;
+  width: 5.9rem;
+  height: 5.9rem;
+  border: 1px solid rgba(200, 166, 106, 0.75);
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.87), rgba(244, 239, 232, 0.74));
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -2px 4px rgba(200, 166, 106, 0.14),
+    inset 0 10px 16px rgba(255, 255, 255, 0.4),
+    0 0 0 1px rgba(200, 166, 106, 0.18);
+}
+
+.monogram:hover,
+.monogram:focus-visible {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    inset 0 -2px 4px rgba(200, 166, 106, 0.16),
+    inset 0 10px 16px rgba(255, 255, 255, 0.42),
+    0 8px 18px rgba(200, 166, 106, 0.08);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(244, 239, 232, 0.78));
+  outline: none;
+}
+
+.monogram__text {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.16rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.landing__instruction {
+  margin-top: 1.05rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: none;
+  color: var(--gold);
+}
+
+.scroll-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.15rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.scroll-indicator__arrow {
+  display: inline-block;
+  animation: driftArrow 1.6s ease-in-out infinite;
+}
+
+.scroll-indicator.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+/* Invitation */
+.invitation {
+  position: fixed;
+  inset: 0;
+  background: rgba(250, 248, 245, 0.96);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.9s ease, visibility 0.9s ease;
+  z-index: 2;
+  overflow-y: auto;
+}
+
+.invitation.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.invitation__card {
+  position: relative;
+  max-width: 810px;
+  width: min(93vw, 810px);
+  margin: 2.4rem auto;
+  padding: clamp(2.2rem, 4vw, 3.3rem);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(250, 247, 242, 0.78));
+  border: 1px solid rgba(200, 166, 106, 0.35);
+  border-radius: 1.5rem;
+  box-shadow: 0 18px 44px rgba(78, 66, 90, 0.08);
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.venue-card {
+  padding: 1.3rem 1.1rem 1.2rem;
+  border: 1px solid rgba(200, 166, 106, 0.3);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 10px 24px rgba(78, 66, 90, 0.04);
+}
+
+.invitation__card::before,
+.invitation__card::after {
+  content: "";
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+  pointer-events: none;
+  filter: blur(0.5px);
+}
+
+.invitation__card::before {
+  top: -1rem;
+  left: -1rem;
+  background: radial-gradient(circle, rgba(220, 206, 243, 0.26) 0%, rgba(220, 206, 243, 0) 70%);
+}
+
+.invitation__card::after {
+  right: -1rem;
+  bottom: -1rem;
+  background: radial-gradient(circle, rgba(220, 206, 243, 0.2) 0%, rgba(220, 206, 243, 0) 72%);
+}
+
+.invitation__card h2 {
+  margin: 0 0 1.1rem;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+}
+
+.invitation__intro {
+  margin: 0 auto 2.2rem;
+  max-width: 34rem;
+  font-size: 1.04rem;
+  line-height: 1.95;
+  letter-spacing: 0.01em;
+  color: rgba(78, 66, 90, 0.9);
+}
+
+.invitation__break {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.invitation__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 13rem);
+  margin: 1.35rem auto;
+  opacity: 0.9;
+}
+
+.invitation__divider svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.86;
+}
+
+.invitation__schedule,
+.invitation__venue,
+.invitation__rsvp,
+.invitation__closing {
+  margin: 1.7rem 0 0;
+}
+
+.invitation__label {
+  margin: 0 0 0.28rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.invitation__value,
+.invitation__address {
+  margin: 0;
+  line-height: 1.85;
+  font-style: normal;
+  color: rgba(78, 66, 90, 0.9);
+}
+
+.venue-title {
+  margin-bottom: 0.72rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.36rem;
+  font-weight: 600;
+}
+
+.invitation__address {
+  font-size: 0.96rem;
+  line-height: 1.8;
+}
+
+.invitation__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  padding: 0.84rem 1.65rem;
+  border: 1px solid rgba(200, 166, 106, 0.72);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.68);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.invitation__button:hover,
+.invitation__button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(200, 166, 106, 0.12);
+  background: rgba(231, 220, 247, 0.2);
+  color: var(--gold);
+  outline: none;
+}
+
+.button-icon,
+.rsvp-card a svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.invitation__rsvp {
+  margin: 2.1rem 0 0;
+}
+
+.invitation__rsvp h3 {
+  margin: 0 0 1rem;
+  font-size: 1.45rem;
+  font-weight: 600;
+}
+
+.invitation__rsvp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.rsvp-card {
+  padding: 1.25rem 1rem 1.2rem;
+  border: 1px solid rgba(232, 220, 199, 0.8);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 24px rgba(78, 66, 90, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rsvp-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(78, 66, 90, 0.06);
+}
+
+.rsvp-card__initials {
+  width: 2.9rem;
+  height: 2.9rem;
+  margin: 0 auto 0.8rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(200, 166, 106, 0.55);
+  border-radius: 50%;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.rsvp-card h4 {
+  margin: 0 0 0.8rem;
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+
+.rsvp-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.25rem 0.25rem 0 0;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(200, 166, 106, 0.4);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.rsvp-card a:hover,
+.rsvp-card a:focus-visible {
+  transform: translateY(-1px);
+  color: var(--gold);
+  outline: none;
+}
+
+.invitation__closing {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.invitation__closing p {
+  margin: 0;
+  line-height: 1.8;
+}
+
+.invitation__closing-text {
+  margin-bottom: 1rem;
+}
+
+.invitation__ornament {
+  margin: 0.8rem 0 0.7rem;
+  font-size: 1.15rem;
+  color: var(--gold);
+}
+
+.invitation__love {
+  margin-top: 0.3rem;
+  font-style: italic;
+  font-size: 0.96rem;
+  letter-spacing: 0.04em;
+}
+
+.invitation__signoff {
+  margin-top: 0.8rem !important;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.03em;
+}
+
+.invitation__families {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  color: rgba(78, 66, 90, 0.85);
+}
+
+.invitation__footer {
+  margin-top: 1.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(232, 220, 199, 0.8);
+}
+
+.invitation__footer p {
+  margin: 0.45rem 0 0;
+  font-size: 0.84rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.footer__monogram {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.invitation__card.is-revealed {
+  animation: introFadeUp 0.95s ease both;
+}
+
+/* State transitions */
+.landing.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
+}
+
+/* Animations */
+@keyframes introFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes driftArrow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .progress-indicator {
+    display: none;
+  }
+
+  .top-nav {
+    top: 0.8rem;
+    right: 0.8rem;
+  }
+
+  .top-nav__menu {
+    position: absolute;
+    top: calc(100% + 0.55rem);
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 10rem;
+    display: none;
+  }
+
+  .top-nav__menu.is-open {
+    display: flex;
+  }
+
+  .top-nav__toggle {
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  .landing,
+  .invitation {
+    padding: 1.2rem;
+  }
+
+  .landing__headline {
+    font-size: clamp(1.55rem, 5vw, 2.1rem);
+  }
+
+  .landing__names {
+    font-size: clamp(2.25rem, 7vw, 3rem);
+  }
+
+  .monogram {
+    width: 4.6rem;
+    height: 4.6rem;
+  }
+
+  .invitation__rsvp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-nav {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .landing__inner {
+    padding: 1.25rem 0.45rem;
+  }
+
+  .landing__details {
+    font-size: 0.95rem;
+  }
+
+  .landing__subtitle {
+    font-size: 0.7rem;
+  }
+
+  .landing__instruction {
+    letter-spacing: 0.16em;
+  }
+
+  .invitation__button {
+    width: 100%;
+  }
+
+  .venue-card {
+    padding: 1rem 0.9rem;
+  }
+
+  .invitation__card {
+    padding: 1.4rem 1rem 1.6rem;
+  }
+
+  .rsvp-card {
+    padding: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .loader {
+    transition: none;
+  }
+}

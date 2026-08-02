@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="20 February 2027 • The Palace House, Chennai. We look forward to celebrating this beautiful evening with you."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Resmi ❤ Hari | Wedding Reception" />
+    <meta
+      property="og:description"
+      content="20 February 2027 • The Palace House, Chennai. We look forward to celebrating this beautiful evening with you."
+    />
+    <meta property="og:image" content="assets/preview.png" />
+    <meta property="og:image:alt" content="Resmi and Hari wedding reception invitation preview" />
+    <meta property="og:site_name" content="Resmi ❤ Hari" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Resmi ❤ Hari | Wedding Reception" />
+    <meta
+      name="twitter:description"
+      content="20 February 2027 • The Palace House, Chennai. We look forward to celebrating this beautiful evening with you."
+    />
+    <meta name="twitter:image" content="assets/preview.png" />
+    <meta name="twitter:image:alt" content="Resmi and Hari wedding reception invitation preview" />
+    <link rel="icon" type="image/png" href="assets/preview.png" />
+    <link rel="apple-touch-icon" href="assets/preview.png" />
+    <title>Resmi ❤ Hari | Wedding Reception</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lora:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="loader" id="loader" aria-live="polite" aria-label="Loading invitation">
+      <div class="loader__inner">
+        <div class="loader__monogram" aria-hidden="true">R <span>❤</span> H</div>
+        <p class="loader__subtitle">An Evening of Celebration</p>
+        <p class="loader__names">Resmi <span aria-hidden="true">❤</span> Hari</p>
+      </div>
+    </div>
+
+    <nav class="top-nav" aria-label="Primary section navigation">
+      <button class="top-nav__toggle" type="button" aria-expanded="false" aria-label="Open section navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="top-nav__menu" id="topNavMenu">
+        <a href="#welcome" class="top-nav__link" data-target="welcome">Welcome</a>
+        <a href="#venue" class="top-nav__link" data-target="venue">Venue</a>
+        <a href="#rsvp" class="top-nav__link" data-target="rsvp">RSVP</a>
+      </div>
+    </nav>
+
+    <div class="progress-indicator" aria-label="Section progress">
+      <button class="progress-indicator__item" type="button" data-target="welcome" aria-label="Go to Welcome section">
+        <span class="progress-indicator__number">01</span>
+      </button>
+      <button class="progress-indicator__item" type="button" data-target="venue" aria-label="Go to Venue section">
+        <span class="progress-indicator__number">02</span>
+      </button>
+      <button class="progress-indicator__item" type="button" data-target="rsvp" aria-label="Go to RSVP section">
+        <span class="progress-indicator__number">03</span>
+      </button>
+    </div>
+
+    <main class="page" id="page">
+      <section class="landing" id="welcome" aria-labelledby="landing-title">
+        <div class="landing__inner">
+          <p class="eyebrow">Together with our families</p>
+          <p class="landing__subtitle">An Evening of Celebration</p>
+
+          <h1 class="landing__headline">
+            Request the pleasure of your presence
+            <span class="landing__break">at the Wedding Reception of</span>
+          </h1>
+
+          <div class="landing__names" id="landing-title">
+            Resmi <span class="heart" aria-hidden="true">❤</span> Hari
+          </div>
+
+          <div class="landing__details">
+            <p>Saturday</p>
+            <p>20 February 2027</p>
+            <p>6:30 PM onwards</p>
+          </div>
+
+          <button class="monogram" id="openInvitation" type="button" aria-label="Open the wedding invitation">
+            <span class="monogram__text">R <span aria-hidden="true">❤</span> H</span>
+          </button>
+
+          <p class="landing__instruction">Touch to open</p>
+        </div>
+      </section>
+
+      <section class="invitation" id="invitation" aria-labelledby="invitation-title" aria-hidden="true">
+        <div class="invitation__card" id="invitationCard">
+          <h2 id="invitation-title">Wedding Reception</h2>
+          <p class="invitation__intro reveal">
+            Together with our families, we invite you to celebrate this special evening with us. Your presence will make our celebration truly memorable.
+          </p>
+
+          <div class="invitation__divider" aria-hidden="true">
+            <svg viewBox="0 0 220 24" role="presentation">
+              <path d="M10 12c12-8 20-8 32 0s20 8 32 0 20-8 32 0 20 8 32 0 20-8 32 0" />
+              <path d="M10 12c12 8 20 8 32 0s20-8 32 0 20 8 32 0 20-8 32 0" />
+            </svg>
+          </div>
+
+          <div class="invitation__schedule reveal">
+            <p class="invitation__label">Saturday</p>
+            <p class="invitation__value">20 February 2027</p>
+            <p class="invitation__value">6:30 PM onwards</p>
+          </div>
+
+          <div class="invitation__divider" aria-hidden="true">
+            <svg viewBox="0 0 220 24" role="presentation">
+              <path d="M10 12c12-8 20-8 32 0s20 8 32 0 20-8 32 0 20 8 32 0 20-8 32 0" />
+              <path d="M10 12c12 8 20 8 32 0s20-8 32 0 20 8 32 0 20-8 32 0" />
+            </svg>
+          </div>
+
+          <div class="invitation__venue reveal" id="venue">
+            <div class="venue-card">
+              <p class="invitation__label">Venue</p>
+              <p class="invitation__value venue-title">The Palace House</p>
+              <address class="invitation__address">
+                136/49, Sai Baba Kovil St<br />
+                Cholamandal Artists Village<br />
+                Injambakkam<br />
+                Chennai – 600115
+              </address>
+              <a
+                class="invitation__button"
+                href="https://maps.app.goo.gl/X3rhZbQ5BhPgkEiR9"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open directions to The Palace House"
+              >
+                <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 21s-5.5-4.9-7.2-8.2A5.8 5.8 0 0 1 12 5.3a5.8 5.8 0 0 1 7.2 7.5C17.5 16.1 12 21 12 21Z" />
+                  <circle cx="12" cy="12" r="2.2" />
+                </svg>
+                Get Directions
+              </a>
+            </div>
+          </div>
+
+          <div class="invitation__divider" aria-hidden="true">
+            <svg viewBox="0 0 220 24" role="presentation">
+              <path d="M10 12c12-8 20-8 32 0s20 8 32 0 20-8 32 0 20 8 32 0 20-8 32 0" />
+              <path d="M10 12c12 8 20 8 32 0s20-8 32 0 20 8 32 0 20-8 32 0" />
+            </svg>
+          </div>
+
+          <div class="invitation__rsvp reveal" id="rsvp">
+            <h3>RSVP</h3>
+            <div class="invitation__rsvp-grid">
+              <article class="rsvp-card">
+                <div class="rsvp-card__initials">H</div>
+                <h4>Hari</h4>
+                <a href="tel:+918129334434" aria-label="Call Hari">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 10.8a14.2 14.2 0 0 0 6 6l1.8-1.8a1 1 0 0 1 1-.2 10.6 10.6 0 0 0 3.4.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h2.2a1 1 0 0 1 1 1 10.7 10.7 0 0 0 .6 3.4 1 1 0 0 1-.2 1Z" /></svg>
+                  Call
+                </a>
+                <a href="https://wa.me/918129334434" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Hari">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19.2 6.1 15a8.2 8.2 0 1 1 7.9 4.2h-.1l-3.6.9Z" /></svg>
+                  WhatsApp
+                </a>
+              </article>
+              <article class="rsvp-card">
+                <div class="rsvp-card__initials">R</div>
+                <h4>Resmi</h4>
+                <a href="tel:+919344537734" aria-label="Call Resmi">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 10.8a14.2 14.2 0 0 0 6 6l1.8-1.8a1 1 0 0 1 1-.2 10.6 10.6 0 0 0 3.4.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h2.2a1 1 0 0 1 1 1 10.7 10.7 0 0 0 .6 3.4 1 1 0 0 1-.2 1Z" /></svg>
+                  Call
+                </a>
+                <a href="https://wa.me/919344537734" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Resmi">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19.2 6.1 15a8.2 8.2 0 1 1 7.9 4.2h-.1l-3.6.9Z" /></svg>
+                  WhatsApp
+                </a>
+              </article>
+            </div>
+          </div>
+
+          <div class="invitation__closing reveal">
+            <p class="invitation__closing-text">We look forward to celebrating this beautiful evening with you.</p>
+            <p class="invitation__ornament">❦</p>
+            <p class="invitation__love">With Love</p>
+            <p class="invitation__signoff">Resmi ❤ Hari</p>
+            <p class="invitation__families">and Our Families</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
