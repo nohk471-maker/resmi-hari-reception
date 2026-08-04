@@ -489,12 +489,18 @@ body::after {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(244, 239, 232, 0.78));
   outline: none;
 }
-
 .monogram__text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  gap: 0.18rem;
+
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.16rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
 }
 
 .landing__instruction {
