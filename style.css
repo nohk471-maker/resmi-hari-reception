@@ -77,8 +77,8 @@ body::after {
 .page::before {
   top: 0;
   left: 0;
-  width: min(26vw, 420px);
-  height: min(26vw, 420px);
+    width: min(30vw, 500px);
+    height: min(30vw, 500px);
   background-image: url("assets/floral/floral-top-left.png");
 }
 
