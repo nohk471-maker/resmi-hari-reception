@@ -111,29 +111,28 @@ const observeSections = () => {
 if (loader) {
   body.classList.add('is-locked');
 
-  if (reduceMotion) {
-    loader.classList.add('is-visible');
+  // Show loader immediately
+  loader.classList.add('is-visible');
+
+  const hideLoader = () => {
+    const minimumDisplayTime = 1800;
+
     window.setTimeout(() => {
       loader.classList.add('is-hidden');
       body.classList.remove('is-locked');
-      loader.remove();
-    }, 0);
+
+      window.setTimeout(() => {
+        loader.remove();
+      }, 600); // Match your CSS transition duration
+    }, minimumDisplayTime);
+  };
+
+  if (document.readyState === 'complete') {
+    hideLoader();
   } else {
-    window.setTimeout(() => {
-      loader.classList.add('is-visible');
-    }, 0);
-
-    window.setTimeout(() => {
-      loader.classList.add('is-hidden');
-      body.classList.remove('is-locked');
-    }, 1300);
-
-    window.setTimeout(() => {
-      loader.remove();
-    }, 1800);
+    window.addEventListener('load', hideLoader, { once: true });
   }
 }
-
 if (openInvitationButton && landingSection && invitationSection && invitationCard) {
   openInvitationButton.addEventListener('click', (event) => {
     event.preventDefault();
