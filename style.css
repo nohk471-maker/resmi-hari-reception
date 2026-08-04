@@ -937,10 +937,10 @@ body::after {
     font-size: clamp(2.25rem, 7vw, 3rem);
   }
 
-  .monogram {
-    width: 4.6rem;
-    height: 4.6rem;
-  }
+ .monogram {
+  width: clamp(5rem, 18vw, 5.9rem);
+  height: clamp(5rem, 18vw, 5.9rem);
+}
 
   .invitation__rsvp-grid {
     grid-template-columns: 1fr;
