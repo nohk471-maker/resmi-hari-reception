@@ -67,30 +67,28 @@ body::after {
 .page::after {
   content: "";
   position: fixed;
-  width: 11rem;
-  height: 11rem;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.12;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.9;
 }
 
 .page::before {
-  top: 1rem;
-  left: 1rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M34 168c-1-31 10-55 30-73 19-17 35-26 48-26 13 0 24 6 31 17-5 7-15 14-23 18-11 6-19 10-25 20-5 8-7 16-7 28 0 10 6 20 15 25-20 4-38-1-53-16-11-12-16-24-16-53 0-12 2-27 8-39 6-12 14-21 24-28 5 3 10 7 14 13-6 8-10 17-13 27-3 11-4 24-4 38 0 10 0 20 3 30 3 11 10 21 20 27-9-2-17-8-23-16-7-10-9-18-9-33Z' fill='none' stroke='%23c8a66a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M118 169c6-23 16-35 29-45 9-7 17-12 22-17-8 17-17 28-29 38-8 7-16 13-25 24Z' fill='none' stroke='%23c8a66a' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M74 74c7-4 17-6 28-4 7 1 13 4 18 8' fill='none' stroke='%23c8a66a' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M94 46c-4 12-7 23-8 37' fill='none' stroke='%23c8a66a' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: contain;
+  top: 0;
+  left: 0;
+  width: min(26vw, 420px);
+  height: min(26vw, 420px);
+  background-image: url("assets/floral/floral-top-left.png");
 }
 
 .page::after {
-  right: 1rem;
-  bottom: 1rem;
-  transform: scaleX(-1);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M34 168c-1-31 10-55 30-73 19-17 35-26 48-26 13 0 24 6 31 17-5 7-15 14-23 18-11 6-19 10-25 20-5 8-7 16-7 28 0 10 6 20 15 25-20 4-38-1-53-16-11-12-16-24-16-53 0-12 2-27 8-39 6-12 14-21 24-28 5 3 10 7 14 13-6 8-10 17-13 27-3 11-4 24-4 38 0 10 0 20 3 30 3 11 10 21 20 27-9-2-17-8-23-16-7-10-9-18-9-33Z' fill='none' stroke='%23c8a66a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M118 169c6-23 16-35 29-45 9-7 17-12 22-17-8 17-17 28-29 38-8 7-16 13-25 24Z' fill='none' stroke='%23c8a66a' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M74 74c7-4 17-6 28-4 7 1 13 4 18 8' fill='none' stroke='%23c8a66a' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M94 46c-4 12-7 23-8 37' fill='none' stroke='%23c8a66a' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: contain;
+  bottom: 0;
+  right: 0;
+  width: min(28vw, 460px);
+  height: min(28vw, 460px);
+  background-image: url("assets/floral/floral-bottom-right.png");
 }
-
 .page {
   position: relative;
   z-index: 1;
