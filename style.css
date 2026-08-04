@@ -543,7 +543,32 @@ body::after {
   z-index: 2;
   overflow-y: auto;
 }
+.invitation::before,
+.invitation::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.9;
+}
 
+.invitation::before {
+  top: 0;
+  left: 0;
+  width: min(26vw, 420px);
+  height: min(26vw, 420px);
+  background-image: url("assets/floral/floral-top-left.png");
+}
+
+.invitation::after {
+  right: 0;
+  bottom: 0;
+  width: min(28vw, 460px);
+  height: min(28vw, 460px);
+  background-image: url("assets/floral/floral-bottom-right.png");
+}
 .invitation.is-visible {
   opacity: 1;
   visibility: visible;
@@ -552,6 +577,8 @@ body::after {
 
 .invitation__card {
   position: relative;
+  z-index: 2;
+
   max-width: 810px;
   width: min(93vw, 810px);
   margin: 2.4rem auto;
