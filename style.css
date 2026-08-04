@@ -969,7 +969,12 @@ body::after {
 
   .invitation__rsvp-grid {
     grid-template-columns: 1fr;
+ }
+
+  .invitation__closing {
+    padding-bottom: 8rem;
   }
+
 }
 
 @media (max-width: 480px) {
@@ -1003,7 +1008,7 @@ body::after {
   }
 
   .invitation__card {
-    padding: 1.4rem 1rem 1.6rem;
+    padding: 1.4rem 1rem 6rem;
   }
 
   .rsvp-card {
