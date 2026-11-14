@@ -1072,20 +1072,44 @@ html, body { scroll-behavior:auto; }
 @media(max-width:600px) { .story-amenities { grid-template-columns:1fr; } .story-card { width:100%; } .story-actions { gap:.5rem; } .story-button { min-width:110px; } .story-venue-image { max-height:240px; } }
 @media(prefers-reduced-motion:reduce) { .story-button { transition:none; } }
 
-/* Fix: Center Welcome page content */
-.page > .landing.is-current {
-  display: flex !important;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 100svh;
-  text-align: center;
-}
 
-.landing__inner {
-  width: 100%;
-  max-width: 770px;
-  margin: 0 auto;
-  text-align: center;
-}
+/* Five-page refined reception invitation */
+.page > .landing.is-current { display:flex !important; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:100svh; width:100%; }
+.landing__inner { width:100%; max-width:770px; margin:0 auto; text-align:center; padding:clamp(2.4rem,6vw,5rem) clamp(1rem,4vw,3rem); }
+.welcome-eyebrow { letter-spacing:.26em; color:#9276a3; font-size:clamp(.7rem,1.5vw,.85rem); margin:0 0 2rem; }
+.welcome-names { font-size:clamp(3.1rem,9vw,6.6rem); line-height:1.15; margin:clamp(2rem,6vh,4rem) 0 1.8rem; font-weight:600; }
+.welcome-rule { display:block; height:1px; width:80px; margin:0 auto 2rem; background:linear-gradient(90deg,transparent,#b9a0c7,transparent); }
+.welcome-open { border:0; background:transparent; color:#80688f; font:500 .88rem 'Lora',Georgia,serif; letter-spacing:.08em; cursor:pointer; padding:1rem 1.2rem; min-height:48px; }
+.welcome-open:hover,.welcome-open:focus-visible { color:#513767; text-decoration:underline; text-underline-offset:.35em; }
+.page > .invitation.is-current { display:flex !important; align-items:center; justify-content:center; padding:clamp(1rem,3vw,2rem); }
+.reception-card { position:relative; width:min(94vw,650px); margin:1rem auto; padding:clamp(2.5rem,7vw,5rem) clamp(1rem,5vw,3rem); text-align:center; background:linear-gradient(140deg,rgba(255,255,255,.93),rgba(250,247,253,.9)); border:1px solid rgba(185,160,199,.4); border-radius:1.5rem; box-shadow:0 18px 44px rgba(78,66,90,.08); }
+.reception-eyebrow,.reception-weekday { font-size:.73rem; letter-spacing:.23em; color:#9579a5; font-weight:600; }
+.reception-eyebrow { margin:0 0 1.6rem; }
+.reception-rule { width:70px; height:1px; background:#c9b1d3; margin:1.5rem auto; }
+.reception-weekday { margin:1.8rem 0 .4rem; }
+.reception-day { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(6rem,19vw,10rem); line-height:.95; color:#604473; font-weight:600; }
+.reception-month { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(2.3rem,7vw,4rem); line-height:1.15; color:#604473; margin:.2rem 0; }
+.reception-year { color:#80688f; font-size:1rem; letter-spacing:.2em; margin:.2rem 0; }
+.reception-time { color:#604473; font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(1.6rem,4vw,2.3rem); font-weight:600; margin:.7rem 0 1.4rem; }
+.family-screen { overflow-y:auto; align-items:flex-start !important; }
+.family-card--three-part { max-width:720px; margin:clamp(1rem,4vw,2.5rem) auto; padding:clamp(1.3rem,4vw,2.8rem); }
+.family-card--three-part .family-section { padding:clamp(1rem,2.8vw,1.6rem) 0; }
+.family-card--three-part .family-section + .family-section { border-top:1px solid rgba(164,130,179,.35); }
+.family-card--three-part .family-section__label { font-size:.72rem; letter-spacing:.19em; font-weight:600; color:#8a719d; margin:0 0 1rem; }
+.family-card--three-part h2 { font-size:clamp(1.75rem,4.4vw,2.7rem); margin:.3rem 0 .65rem; }
+.family-card--three-part address { color:#766b7d; font-size:clamp(.78rem,2.5vw,.93rem); line-height:1.65; }
+.family-card--three-part .family-section__intro { margin:1.25rem 0 .35rem; }
+.family-card--three-part .family-section__relatives { font-weight:600; line-height:1.65; }
+.family-card--three-part .story-message { max-width:550px; margin:0 auto 1rem; line-height:1.7; }
+.family-card--three-part .story-name { font-size:clamp(2.3rem,7vw,3.8rem); margin:.3rem 0; line-height:1.08; }
+.family-card--three-part .story-with { margin:.55rem 0; color:#9473a7; }
+.family-card--three-part .story-parents { margin:.4rem 0; }
+.family-card--three-part .family-section--blessings p:not(.family-section__label) { max-width:550px; margin:.7rem auto; line-height:1.7; }
+.family-card--three-part .family-section__closing { font-weight:600; color:#674b79; }
+.family-card--three-part .family-section__ornament { color:#9c7baf; font-size:1.4rem; }
+.farewell-card { max-width:960px; }
+.farewell-card h2 { font-size:clamp(2.4rem,5vw,3.8rem); margin:.2rem 0; }
+.farewell-caption { color:#80688f; margin:.2rem 0 1.3rem; font-style:italic; }
+.farewell-image { display:block; width:100%; height:auto; max-height:min(66vh,640px); object-fit:contain; border:1px solid rgba(185,160,199,.38); border-radius:1rem; background:#f9f5fb; }
+@media(max-width:600px){.family-card--three-part{margin:.75rem auto;padding:1.15rem}.family-card--three-part .family-section{padding:1.1rem 0}.farewell-card{padding:1rem}.farewell-image{max-height:none}.reception-card{padding:2.5rem 1rem}.welcome-names{font-size:clamp(2.8rem,11vw,4.3rem)}}
+@media(prefers-reduced-motion:reduce){.landing{animation:none}}
