@@ -1071,3 +1071,21 @@ html, body { scroll-behavior:auto; }
 .invitation.is-current .reveal { opacity:1 !important; transform:none !important; visibility:visible !important; }
 @media(max-width:600px) { .story-amenities { grid-template-columns:1fr; } .story-card { width:100%; } .story-actions { gap:.5rem; } .story-button { min-width:110px; } .story-venue-image { max-height:240px; } }
 @media(prefers-reduced-motion:reduce) { .story-button { transition:none; } }
+
+/* Fix: Center Welcome page content */
+.page > .landing.is-current {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100svh;
+  text-align: center;
+}
+
+.landing__inner {
+  width: 100%;
+  max-width: 770px;
+  margin: 0 auto;
+  text-align: center;
+}
