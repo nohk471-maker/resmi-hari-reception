@@ -83,31 +83,6 @@
       </div>
     </div>
 
-    <nav class="top-nav" aria-label="Primary section navigation">
-      <button class="top-nav__toggle" type="button" aria-expanded="false" aria-label="Open section navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <div class="top-nav__menu" id="topNavMenu">
-        <a href="#welcome" class="top-nav__link" data-target="welcome">Welcome</a>
-        <a href="#venue" class="top-nav__link" data-target="venue">Venue</a>
-        <a href="#rsvp" class="top-nav__link" data-target="rsvp">RSVP</a>
-      </div>
-    </nav>
-
-    <div class="progress-indicator" aria-label="Section progress">
-      <button class="progress-indicator__item" type="button" data-target="welcome" aria-label="Go to Welcome section">
-        <span class="progress-indicator__number">01</span>
-      </button>
-      <button class="progress-indicator__item" type="button" data-target="venue" aria-label="Go to Venue section">
-        <span class="progress-indicator__number">02</span>
-      </button>
-      <button class="progress-indicator__item" type="button" data-target="rsvp" aria-label="Go to RSVP section">
-        <span class="progress-indicator__number">03</span>
-      </button>
-    </div>
-
     <main class="page" id="page">
       <section class="landing" id="welcome" aria-labelledby="landing-title">
         <div class="landing__inner">
@@ -137,7 +112,25 @@
         </div>
       </section>
 
-      <section class="invitation" id="invitation" aria-labelledby="invitation-title" aria-hidden="true">
+      <section class="story-screen family-screen" id="family" aria-labelledby="family-title" aria-hidden="true" hidden>
+        <div class="story-card family-card">
+          <p class="story-eyebrow">❦ With Love &amp; Blessings ❦</p>
+          <h2 id="family-title">Premkumar &amp; Rajani</h2>
+          <address>3/83B, Ground Floor, Yasodha Nivas<br>PKS Garden Road, Periyar Street<br>Palavakkam, Chennai – 600041</address>
+          <div class="story-rule" aria-hidden="true"></div>
+          <p class="story-message">Cordially invite you and your family to celebrate the marriage of their beloved daughter</p>
+          <p class="story-name">Resmi</p>
+          <p class="story-with">with</p>
+          <p class="story-name">Hari</p>
+          <p class="story-with">Son of</p>
+          <p class="story-parents">Krishna Kumar K &amp; Omana PN</p>
+          <address>Sreepadam House, Manalvayal Post<br>Irulam, Wayanad – 673579</address>
+          <div class="story-actions"><button type="button" class="story-button story-button--secondary" data-go="welcome">← Back</button><button type="button" class="story-button" data-go="invitation">Next →</button></div>
+          <p class="story-count">02 / 04</p>
+        </div>
+      </section>
+
+      <section class="invitation" id="invitation" aria-labelledby="invitation-title" aria-hidden="true" hidden>
         <div class="invitation__card" id="invitationCard">
           <h2 id="invitation-title">Wedding Reception</h2>
           <p class="invitation__intro reveal">
@@ -162,32 +155,6 @@
               <path d="M10 12c12-8 20-8 32 0s20 8 32 0 20-8 32 0 20 8 32 0 20-8 32 0" />
               <path d="M10 12c12 8 20 8 32 0s20-8 32 0 20 8 32 0 20-8 32 0" />
             </svg>
-          </div>
-
-          <div class="invitation__venue reveal" id="venue">
-            <div class="venue-card">
-              <p class="invitation__label">Venue</p>
-              <p class="invitation__value venue-title">The Palace House</p>
-              <address class="invitation__address">
-                136/49, Sai Baba Kovil St<br />
-                Cholamandal Artists Village<br />
-                Injambakkam<br />
-                Chennai – 600115
-              </address>
-              <a
-                class="invitation__button"
-                href="https://maps.app.goo.gl/X3rhZbQ5BhPgkEiR9"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open directions to The Palace House"
-              >
-                <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 21s-5.5-4.9-7.2-8.2A5.8 5.8 0 0 1 12 5.3a5.8 5.8 0 0 1 7.2 7.5C17.5 16.1 12 21 12 21Z" />
-                  <circle cx="12" cy="12" r="2.2" />
-                </svg>
-                Get Directions
-              </a>
-            </div>
           </div>
 
           <div class="invitation__divider" aria-hidden="true">
@@ -234,6 +201,26 @@
             <p class="invitation__signoff">Resmi ❤ Hari</p>
             <p class="invitation__families">and Our Families</p>
           </div>
+          <div class="story-actions"><button type="button" class="story-button story-button--secondary" data-go="family">← Back</button><button type="button" class="story-button" data-go="venue">Next →</button></div>
+          <p class="story-count">03 / 04</p>
+        </div>
+      </section>
+
+      <section class="story-screen venue-screen" id="venue" aria-labelledby="venue-page-title" aria-hidden="true" hidden>
+        <div class="story-card venue-story-card">
+          <p class="story-eyebrow">❦ The Celebration ❦</p>
+          <h2 id="venue-page-title">The Venue</h2>
+          <img class="story-venue-image" src="the-palacehouse-25.jpg" alt="The Palace House venue and outdoor lawn illuminated at night" loading="lazy">
+          <h3>The Palace House</h3>
+          <address>136/49, Sai Baba Kovil St<br>Cholamandal Artists Village<br>Injambakkam, Chennai – 600115</address>
+          <p class="story-event">Saturday, 20 February 2027<br>6:30 PM – 10:00 PM</p>
+          <div class="story-amenities">
+            <div><strong>✿ Lawn Venue</strong><span>Join us for an evening celebration on the lawn.</span></div>
+            <div><strong>🚗 Parking</strong><span>Parking is available near the venue for guests.</span></div>
+          </div>
+          <a class="story-button story-map" href="https://maps.app.goo.gl/X3rhZbQ5BhPgkEiR9" target="_blank" rel="noopener noreferrer">Get Directions ↗</a>
+          <div class="story-actions"><button type="button" class="story-button story-button--secondary" data-go="invitation">← Back</button><button type="button" class="story-button story-button--secondary" data-go="welcome">Start Again ↺</button></div>
+          <p class="story-count">04 / 04</p>
         </div>
       </section>
     </main>
